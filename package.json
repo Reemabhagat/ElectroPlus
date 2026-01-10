@@ -75,7 +75,6 @@
     "json5": "^2.2.3",
     "keyv": "^4.5.4",
     "levn": "^0.4.1",
-    "lightningcss": "^1.30.2",
     "locate-path": "^6.0.0",
     "lodash.merge": "^4.6.2",
     "lru-cache": "^5.1.1",
@@ -132,7 +131,8 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.16",
-    "@vitejs/plugin-react": "^5.0.4"
+    "@vitejs/plugin-react": "^5.0.4",
+    "lightningcss": "^1.30.2"
   },
   "scripts": {
     "dev": "vite",
