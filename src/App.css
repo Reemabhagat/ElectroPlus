@@ -1,0 +1,70 @@
+/* header */
+
+
+
+/* home-page */
+
+/* banner */
+.Banner {
+  background-color: #211C24;
+  font-family: inter;
+}
+
+
+
+
+.macbook-right {
+  background-color: #EDEDED;
+}
+
+#mac-right {
+  font-family: inter;
+
+}
+
+.apple-vision {
+  background-color: #353535;
+}
+
+.bnr-footer {
+  font-family: inter;
+
+}
+
+/* pagebanner */
+.caveat-brush-regular {
+  font-family: "Caveat Brush", cursive;
+}
+
+.bg-cart{
+  background-color: #EDF1F4;
+}
+/* login */
+.login-right{
+  background-color: #FFEDE1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+.bg-footer {
+  background-color: #EDEDED;
+
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.copyright {
+  background-color: #211C24;
+}
