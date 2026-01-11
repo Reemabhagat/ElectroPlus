@@ -3,7 +3,7 @@ import CategorySlider from "../components/CategorySlider";
 import ProductShowcase from "../components/ProductShowcase";
 
 import bannerFooter from "../assets/banner-footer.png"
-
+import HomeBanner from "../assets/banner-phn.png"
 
 
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
           </div>
           {/* banner-iphn */}
           <div className="banner-img flex justify-center md:justify-end">
-            <img src="./src/assets/banner-phn.png" alt="ElectroPlus" className="h-100 w-80" />
+            <img src={HomeBanner} alt="ElectroPlus" className="h-100 w-80" />
           </div>
         </div>
       </div>
