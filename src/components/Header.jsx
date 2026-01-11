@@ -7,7 +7,7 @@ import { LuCircleUser } from 'react-icons/lu';
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth } from "../auth/useAuth";
 import Modal from "../components/Modal";
-
+import Logo from '../assets/elec.png';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -80,7 +80,7 @@ const closeModal = () => {
         {/* Logo */}
 
         <Link to="/">
-          <img src="./src/assets/elec.png" alt="ElectroPlus" className="w-20 h-20" />
+          <img src= {Logo} alt="ElectroPlus" className="w-20 h-20" />
         </Link>
 
 
