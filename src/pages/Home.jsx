@@ -7,8 +7,7 @@ import HomeBanner from "../assets/banner-phn.png"
 import PlayStation from "../assets/playstation.png"
 import AirPods from "../assets/airpods.png"
 import MacRight from "../assets/macbook-right.png"
-
-
+import AirVision from "../assets/vision.png"
 
 
 function Home() {
@@ -66,7 +65,7 @@ function Home() {
               {/* right-column */}
               <div className="grid  grid-cols-1 md:grid-cols-5 items-center apple-vision">
                 <div className="md:col-span-2">
-                  <img src="./src/assets/vision.png" alt="ElectroPlus" className="" />
+                  <img src={AirVision} alt="ElectroPlus" className="" />
                 </div>
                 <div className="text-center md:text-start md:col-span-3 md:pr-2 pr-0">
                   <p className="text-white font-thin text-4xl" >Apple Vision</p>
