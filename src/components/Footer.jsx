@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
+import Logo from '../assets/elec.png';
+import AppStore from '../assets/1.png';
+import GooglePlay from '../assets/2.png';
+import WindowsStore from '../assets/3.png';
+
 
 
 function Footer() {
@@ -78,7 +83,7 @@ function Footer() {
                     <div className="mt-15 mb-10 flex justify-center">
                         {/* logo */}
                         <Link to="/">
-                            <img src="./src/assets/elec.png" alt="ElectroPlus" className="w-20 h-20" />
+                            <img src={Logo} alt="ElectroPlus" className="w-20 h-20" />
                         </Link>
 
                     </div>
@@ -87,13 +92,13 @@ function Footer() {
                     <div className="my-6 flex justify-center gap-4">
 
                         <Link to="/">
-                            <img src="./src/assets/1.png" alt="Appstore" className="" />
+                            <img src={AppStore} alt="Appstore" className="" />
                         </Link>
                         <Link to="/">
-                            <img src="./src/assets/2.png" alt="googleplay" className="" />
+                            <img src={GooglePlay} alt="googleplay" className="" />
                         </Link>
                         <Link to="/">
-                            <img src="./src/assets/3.png" alt="windowsstore" className="" />
+                            <img src={WindowsStore} alt="windowsstore" className="" />
                         </Link>
 
 
