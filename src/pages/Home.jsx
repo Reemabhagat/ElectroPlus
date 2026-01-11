@@ -4,6 +4,11 @@ import ProductShowcase from "../components/ProductShowcase";
 
 import bannerFooter from "../assets/banner-footer.png"
 import HomeBanner from "../assets/banner-phn.png"
+import PlayStation from "../assets/playstation.png"
+import AirPods from "../assets/airpods.png"
+import MacRight from "../assets/macbook-right.png"
+
+
 
 
 function Home() {
@@ -34,7 +39,7 @@ function Home() {
             {/* playstation */}
             <div className="grid grid-cols-1 md:grid-cols-2 items-center px-6 md:px-0">
               <div className="hidden md:block">
-                <img src="./src/assets/playstation.png" alt="ElectroPlus" className="" />
+                <img src={PlayStation} alt="ElectroPlus" className="" />
               </div>
               <div className="banner-text text-center md:text-start md:py-0 py-10">
                 <p className="text-black font-medium text-6xl pb-5">Playstation 5</p>
@@ -49,7 +54,7 @@ function Home() {
               {/* left-column */}
               <div className="grid grid-cols-1 md:grid-cols-5 items-center">
                 <div className="md:col-span-2">
-                  <img src="./src/assets/airpods.png" alt="ElectroPlus" className="" />
+                  <img src={AirPods} alt="ElectroPlus" className="" />
                 </div>
                 <div className="text-center md:text-start md:col-span-3 md:pr-2 pr-0 pt-4 md:pt-0">
                   <p className="text-black font-thin text-4xl" >Apple
@@ -84,7 +89,7 @@ function Home() {
                 <a className="text-black font-medium text-base border border-black rounded-sm px-7 py-2" href="/products">Shop Now</a>
               </div>
               <div className="hidden md:flex  justify-end ">
-                <img src="./src/assets/macbook-right.png" alt="ElectroPlus" className="h-80" />
+                <img src={MacRight} alt="ElectroPlus" className="h-80" />
               </div>
             </div>
 
