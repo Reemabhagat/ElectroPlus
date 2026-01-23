@@ -23,7 +23,7 @@ function About() {
                 image={AboutBanner}
                 title="About Us"
                 subtitle="Find the best electronics at unbeatable prices"
-                position="0px 1015px"
+                position="0px 0px"
             />
 
             {/* ABOUT PAGE CONTENT */}
