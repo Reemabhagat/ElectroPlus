@@ -10,8 +10,10 @@ import MacRight from "../assets/macbook-right.png"
 import AirVision from "../assets/vision.png"
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
+
 function Home() {
+const navigate = useNavigate();
+
   return (
     <div className=" ">
       {/* Banner section */}
