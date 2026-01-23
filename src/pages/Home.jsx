@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Home() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className=" ">
@@ -24,12 +24,11 @@ const navigate = useNavigate();
             <h1 className="text-gray-400  text-4xl md:text-7xl font-thin py-3">IPhone 14 <span className="text-white font-semibold">Pro </span></h1>
             <p className="text-gray-400 text-base md:text-lg font-medium pb-6">Created to change everything for the better. For everyone</p>
             {/* <a className="text-white font-medium text-base border border-white rounded-sm px-7 py-2" href="/products">Shop Now</a> */}
-         <button onClick={() => navigate("/products")}
-  className="text-white font-medium text-base border border-white rounded-sm px-7 py-2 cursor-pointer"
->
-  Shop Now
-</button>
-          
+            <button onClick={() => navigate("/products")}
+              className="text-white font-medium text-base border border-white rounded-sm px-7 py-2 cursor-pointer" >
+              Shop Now
+            </button>
+
           </div>
           {/* banner-iphn */}
           <div className="banner-img flex justify-center md:justify-end">
@@ -96,13 +95,13 @@ const navigate = useNavigate();
                   spacious Liquid Retina display.</p>
                 {/* <a className="text-black font-medium text-base border border-black rounded-sm px-7 py-2" 
                 href="/products">Shop Now</a> */}
-              <button
-  onClick={() => navigate("/products")}
-  className="text-black font-medium text-base border border-black rounded-sm px-7 py-2 cursor-pointer">
-  Shop Now
-</button>
-              
-              
+                <button
+                  onClick={() => navigate("/products")}
+                  className="text-black font-medium text-base border border-black rounded-sm px-7 py-2 cursor-pointer">
+                  Shop Now
+                </button>
+
+
               </div>
               <div className="hidden md:flex  justify-end ">
                 <img src={MacRight} alt="ElectroPlus" className="h-80" />
@@ -121,29 +120,27 @@ const navigate = useNavigate();
 
       {/* Banner-footer */}
 
-        <div
-          className="w-full h-100 bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4 bnr-footer"
-          style={{ backgroundImage: `url(${bannerFooter})` }} >
-          <h2 className="text-2xl md:text-5xl font-thin mb-3">
-            Get the Best Deals on <span className="font-bold"> Electronics!   </span>
-          </h2>
-          <p className="text-base md:text-2xl mb-5">
-            Upto 50% Off on New Arrivals – Limited Time Offer
-          </p>
-
-          {/* <a className=" text-white font-semibold px-8 py-2 border rounded-sm " href="/products">
-            Shop Now
-          </a> */}
-<button
-  onClick={() => navigate("/products")}
-  className="text-white font-semibold px-8 py-2 border rounded-sm cursor-pointer">
-  Shop Now
-</button>
+      <div
+        className="w-full h-100 bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4 bnr-footer"
+        style={{ backgroundImage: `url(${bannerFooter})` }} >
+        <h2 className="text-2xl md:text-5xl font-thin mb-3">
+          Get the Best Deals on <span className="font-bold"> Electronics!   </span>
+        </h2>
+        <p className="text-base md:text-2xl mb-5">
+          Upto 50% Off on New Arrivals – Limited Time Offer
+        </p>
 
 
-          
-        </div>
+        <button
+          onClick={() => navigate("/products")}
+          className="text-white font-semibold px-8 py-2 border rounded-sm cursor-pointer">
+          Shop Now
+        </button>
+
+
+
       </div>
+    </div>
 
   );
 }
