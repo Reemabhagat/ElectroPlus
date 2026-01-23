@@ -24,9 +24,8 @@ const navigate = useNavigate();
             <h1 className="text-gray-400  text-4xl md:text-7xl font-thin py-3">IPhone 14 <span className="text-white font-semibold">Pro </span></h1>
             <p className="text-gray-400 text-base md:text-lg font-medium pb-6">Created to change everything for the better. For everyone</p>
             {/* <a className="text-white font-medium text-base border border-white rounded-sm px-7 py-2" href="/products">Shop Now</a> */}
-         <button
-  onClick={() => navigate("/products")}
-  className="text-white font-medium text-base border border-white rounded-sm px-7 py-2"
+         <button onClick={() => navigate("/products")}
+  className="text-white font-medium text-base border border-white rounded-sm px-7 py-2 cursor-pointer"
 >
   Shop Now
 </button>
@@ -95,7 +94,15 @@ const navigate = useNavigate();
                 <p className="text-black font-medium text-6xl pb-2">Air</p>
                 <p className="text-gray-400 text-base md:text-lg font-medium pb-5">The new 15‑inch MacBook Air makes room for more of what you love with a
                   spacious Liquid Retina display.</p>
-                <a className="text-black font-medium text-base border border-black rounded-sm px-7 py-2" href="/products">Shop Now</a>
+                {/* <a className="text-black font-medium text-base border border-black rounded-sm px-7 py-2" 
+                href="/products">Shop Now</a> */}
+              <button
+  onClick={() => navigate("/products")}
+  className="text-black font-medium text-base border border-black rounded-sm px-7 py-2 cursor-pointer">
+  Shop Now
+</button>
+              
+              
               </div>
               <div className="hidden md:flex  justify-end ">
                 <img src={MacRight} alt="ElectroPlus" className="h-80" />
@@ -124,9 +131,17 @@ const navigate = useNavigate();
             Upto 50% Off on New Arrivals – Limited Time Offer
           </p>
 
-          <a className=" text-white font-semibold px-8 py-2 border rounded-sm " href="/products">
+          {/* <a className=" text-white font-semibold px-8 py-2 border rounded-sm " href="/products">
             Shop Now
-          </a>
+          </a> */}
+<button
+  onClick={() => navigate("/products")}
+  className="text-white font-semibold px-8 py-2 border rounded-sm cursor-pointer">
+  Shop Now
+</button>
+
+
+          
         </div>
       </div>
 
