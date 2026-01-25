@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { makeDummyPayment } from "../api/DummyApi";
+import { makeDummyPayment } from "../api/dummyApi";
 
 const PaymentButton = ({ cartItems }) => {
     const [loading, setLoading] = useState(false);
