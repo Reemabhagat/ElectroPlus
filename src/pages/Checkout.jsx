@@ -124,7 +124,7 @@ const Checkout = () => {
               <span>
                 {item.name} × {item.qty}
               </span>
-              <span>₹{item.price * item.qty}</span>
+              <span>Rs {item.price * item.qty}</span>
             </div>
           ))}
 
@@ -132,7 +132,7 @@ const Checkout = () => {
 
           <div className="flex justify-between font-bold text-lg">
             <span>Total</span>
-            <span>₹{totalPrice}</span>
+            <span>Rs {totalPrice}</span>
           </div>
 
           <button onClick={handleProceed} 
