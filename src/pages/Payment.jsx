@@ -2,26 +2,27 @@ import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import PageBanner from "../components/PageBanner";
 import PaymentBanner from "../assets/banners/cart3.jpg";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { makeDummyPayment } from "../api/dummyApi";
+
+
 import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
+import PaymentButton from "../components/PaymentButton";
 
 const Payment = () => {
-  const { cart, setCart } = useContext(CartContext);
-  const navigate = useNavigate();
+  const { cart } = useContext(CartContext);
+
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.qty,
     0
   );
 
-  const handlePayment = async () => {
-    const res = await makeDummyPayment(cart, totalPrice);
-    alert(`Payment Successful 🎉\nOrder ID: ${res.orderId}`);
-    setCart([]);
-    navigate("/");
-  };
+  // const handlePayment = async () => {
+  //   const res = await makeDummyPayment(cart, totalPrice);
+  //   alert(`Payment Successful 🎉\nOrder ID: ${res.orderId}`);
+  //   setCart([]);
+  //   navigate("/");
+  // };
 
   return (
     <>
@@ -67,7 +68,7 @@ const Payment = () => {
             {cart.map((item) => (
               <div key={item.id} className="flex justify-between">
                 <span>{item.name} × {item.qty}</span>
-                <span>₹{item.price * item.qty}</span>
+                <span>Rs {item.price * item.qty}</span>
               </div>
             ))}
           </div>
@@ -76,15 +77,16 @@ const Payment = () => {
 
           <div className="flex justify-between text-lg font-bold">
             <span>Total Amount</span>
-            <span className="text-green-600">₹{totalPrice}</span>
+            <span className="text-green-600">Rs {totalPrice}</span>
           </div>
 
-          <button
+          {/* <button
             onClick={handlePayment}
             className="w-full mt-6 bg-black text-white py-3 rounded-xl text-lg font-semibold hover:scale-[1.02]
              transition cursor-pointer" >
             Pay
-          </button>
+          </button> */}
+          <PaymentButton cartItems={cart} />
 
           <p className="text-xs text-center text-gray-400 mt-4">
             Secure demo payment  No real transaction

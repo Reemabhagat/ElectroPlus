@@ -13,14 +13,14 @@ const PaymentButton = ({ cartItems }) => {
             localStorage.removeItem("cart"); // clear cart
         } catch (err) {
             alert(`Payment Failed: ${err.message}`);
-        } finally {
+        } finally { 
             setLoading(false);
         }
     };
 
 
     return (
-        <button onClick={handlePayment} disable={loading || cartItems.length === 0}>
+        <button onClick={handlePayment} disabled={loading || cartItems.length === 0}>
             {loading ? "Processing..." : "Pay Now"}
 
         </button>
