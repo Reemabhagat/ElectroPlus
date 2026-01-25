@@ -9,6 +9,7 @@ import AirPods from "../assets/airpods.png"
 import MacRight from "../assets/macbook-right.png"
 import AirVision from "../assets/vision.png"
 import { useNavigate } from "react-router-dom";
+import BannerFooter from "../components/BannerFooter";
 
 
 function Home() {
@@ -25,7 +26,9 @@ function Home() {
             <p className="text-gray-400 text-base md:text-lg font-medium pb-6">Created to change everything for the better. For everyone</p>
             {/* <a className="text-white font-medium text-base border border-white rounded-sm px-7 py-2" href="/products">Shop Now</a> */}
             <button onClick={() => navigate("/products")}
-              className="text-white font-medium text-base border border-white rounded-sm px-7 py-2 cursor-pointer" >
+              className="text-white font-medium text-base border border-white rounded-sm px-7 py-2 
+              transition-all duration-900 ease-in-out
+             hover:bg-white hover:text-black cursor-pointer" >
               Shop Now
             </button>
 
@@ -57,8 +60,8 @@ function Home() {
 
             {/* airpods/airvision */}
 
-            <div className="grid md:grid-cols-2 grid-cols-1">
-              {/* left-column */}
+            <div className="grid grid-cols-2 ">
+              {/* left-column md:grid-cols-2 grid-cols-1*/}
               <div className="grid grid-cols-1 md:grid-cols-5 items-center">
                 <div className="md:col-span-2">
                   <img src={AirPods} alt="ElectroPlus" className="" />
@@ -82,7 +85,9 @@ function Home() {
                 </div>
               </div>
 
+
             </div>
+
           </div>
 
           {/* right-column */}
@@ -97,7 +102,9 @@ function Home() {
                 href="/products">Shop Now</a> */}
                 <button
                   onClick={() => navigate("/products")}
-                  className="text-black font-medium text-base border border-black rounded-sm px-7 py-2 cursor-pointer">
+                  className="text-black font-medium text-base border border-black 
+                  rounded-sm px-7 py-2 transition-all duration-900 ease-in-out
+             hover:bg-black hover:text-white cursor-pointer">
                   Shop Now
                 </button>
 
@@ -120,7 +127,7 @@ function Home() {
 
       {/* Banner-footer */}
 
-      <div
+      {/* <div
         className="w-full h-100 bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4 bnr-footer"
         style={{ backgroundImage: `url(${bannerFooter})` }} >
         <h2 className="text-2xl md:text-5xl font-thin mb-3">
@@ -133,13 +140,45 @@ function Home() {
 
         <button
           onClick={() => navigate("/products")}
-          className="text-white font-semibold px-8 py-2 border rounded-sm cursor-pointer">
+          className="text-white font-medium text-base border border-white rounded-sm px-7 py-2 
+              transition-all duration-900 ease-in-out
+             hover:bg-white hover:text-black cursor-pointer">
           Shop Now
         </button>
 
 
 
-      </div>
+      </div> */}
+
+
+      {/* <div
+        className="w-full h-100 bg-cover bg-center flex flex-col items-center justify-center text-white 
+        text-center px-4 bnr-footer"
+        style={{ backgroundImage: `url(${bannerFooter})` }} >
+        <h2 className="text-2xl md:text-5xl font-thin mb-3">
+          Get the Best Deals on <span className="font-bold"> Electronics!   </span>
+        </h2>
+        <p className="text-base md:text-2xl mb-5">
+          Upto 50% Off on New Arrivals – Limited Time Offer
+        </p>
+
+
+        <button
+          onClick={() => navigate("/products")}
+          className="text-white font-medium text-base border border-white rounded-sm px-7 py-2 
+              transition-all duration-900 ease-in-out
+             hover:bg-white hover:text-black cursor-pointer">
+          Shop Now
+        </button>
+
+
+
+      </div> */}
+
+<BannerFooter />
+
+
+
     </div>
 
   );

@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { FaHeart } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 
 function ProductShowcase() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("newarrival");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +16,7 @@ function ProductShowcase() {
     { key: "bestproduct", label: "Best Product" }
   ];
 
-  
+
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
@@ -67,9 +68,8 @@ function ProductShowcase() {
           {products.map(product => (
             <div
               key={product.id}
-              className="relative bg-gray-100 p-5 rounded-lg hover:shadow-lg hover:-translate-y-1 duration-500"
-            >
-              <button className="absolute top-3 right-3 text-gray-500 hover:text-red-500 duration-200">
+              className="relative bg-gray-100 p-5 rounded-lg hover:shadow-lg hover:-translate-y-1 duration-500" >
+              <button className="absolute top-3 right-3 text-gray-500 hover:text-red-500 duration-200 cursor-pointer">
                 <FaHeart />
               </button>
 
@@ -85,12 +85,22 @@ function ProductShowcase() {
                 {product.name}
               </h3>
 
-              <p className="text-black font-bold text-center mt-1">{product.price}</p>
+              <p className="text-black font-bold text-center mt-1">Rs {product.price}</p>
 
               <div className="flex justify-center mt-3">
-                <a className="text-white bg-black font-medium text-base rounded-sm px-7 py-2" href="#">
+                {/* <a className="text-white bg-black font-medium text-base rounded-sm px-7 py-2" href="#">
                   Buy Now
-                </a>
+                </a> */}
+                <button
+                  onClick={() => navigate("/products")}
+                  className="text-white bg-black font-medium text-base border border-black 
+                  rounded-sm px-7 py-2 transition-all duration-1000 ease-in-out
+             hover:bg-white hover:text-black cursor-pointer">
+                  Shop Now
+                </button>
+
+
+
               </div>
             </div>
           ))}

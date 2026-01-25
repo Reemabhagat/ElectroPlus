@@ -30,7 +30,7 @@ function CategorySlider() {
   return (
     <div className="home-products max-w-7xl mx-auto px-6 py-10">
       <div className="product-header flex justify-between pb-8">
-        <p className="font-inter font-medium text-2xl">Browse By Category</p>
+        <p className="font-inter font-medium md:text-2xl">Browse By Category</p>
 
         {/* icons */}
         <div className="arrow-icons flex text-2xl gap-3">

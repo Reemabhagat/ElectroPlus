@@ -135,8 +135,9 @@ const Checkout = () => {
             <span>₹{totalPrice}</span>
           </div>
 
-          <button onClick={handleProceed} className="w-full mt-5 bg-black text-white py-3 rounded-lg cursor-pointer">
-          Proceed to Paymentx
+          <button onClick={handleProceed} 
+          className="w-full mt-5 bg-black text-white py-3 rounded-lg cursor-pointer">
+          Proceed to Payment
         </button>
       </div>
     </div >

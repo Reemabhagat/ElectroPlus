@@ -1,25 +1,11 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import PageBanner from "../components/PageBanner";
 import PaymentBanner from "../assets/banners/cart3.jpg";
 import { useNavigate } from "react-router-dom";
-
-
-
-const loadRazorpayScript = () => {
-  return new Promise((resolve) => {
-    if (window.Razorpay) {
-      resolve(true);
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.onload = () => resolve(true);
-    script.onerror = () => resolve(false);
-    document.body.appendChild(script);
-  });
-};
+import { motion } from "framer-motion";
+import { makeDummyPayment } from "../api/dummyApi";
+import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 
 const Payment = () => {
   const { cart, setCart } = useContext(CartContext);
@@ -30,52 +16,11 @@ const Payment = () => {
     0
   );
 
-
-  
-  // Razorpay Checkout
   const handlePayment = async () => {
-    if (cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
-
-     const loaded = await loadRazorpayScript();
-      if (!loaded) {
-    alert("Razorpay SDK failed to load. Check internet.");
-    return;
-  }
-    const options = {
-      key: "rzp_test_S1PHvcE85HsOEG", // Razorpay test key
-      amount: totalPrice * 100, // in paise
-      currency: "INR",
-      name: "ElectroPlus",
-      description: "Test Transaction",
-      handler: function (response) {
-        // Payment success
-        console.log("Payment Successful! ", response);
-        alert("Payment Successful");
-        setCart([]);
-      navigate("/");
-      },
-      prefill: {
-        name: "John Doe",
-        email: "john@example.com",
-        contact: "9999999999",
-      },
-      theme: {
-        color: "#000000",
-      },
-       config: {
-    display: {
-      hide: [
-        { method: "international" } // 🚫 international cards hidden
-      ]
-    }
-  }
-    };
-
-    const rzp1 = new window.Razorpay(options);
-    rzp1.open();
+    const res = await makeDummyPayment(cart, totalPrice);
+    alert(`Payment Successful 🎉\nOrder ID: ${res.orderId}`);
+    setCart([]);
+    navigate("/");
   };
 
   return (
@@ -83,49 +28,68 @@ const Payment = () => {
       <PageBanner
         image={PaymentBanner}
         title="Payment"
-        subtitle="Complete your purchase securely"
-        position="0px 500px" className="pointer-events-none"
+        subtitle="Complete your order"
+        position="0px 500px"
       />
 
-      <div className="max-w-4xl mx-auto py-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-4xl mx-auto py-16 px-4">
 
-        {/* LEFT - ORDER SUMMARY */}
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-
-          {cart.map((item) => (
-            <div key={item.id} className="flex justify-between mb-2">
-              <span>{item.name} × {item.qty}</span>
-              <span>₹{item.price * item.qty}</span>
-            </div>
-          ))}
-
-          <hr className="my-3" />
-
-          <div className="flex justify-between font-bold text-lg">
-            <span>Total</span>
-            <span>₹{totalPrice}</span>
+        {/* STEP INDICATOR */}
+        <div className="flex justify-between items-center mb-10 text-sm font-semibold">
+          <div className="flex items-center gap-2 text-green-600">
+            <IoCheckmarkDoneCircleSharp size={40}/>
+                Cart
           </div>
 
-          <button onClick= {handlePayment} 
-            className="w-full mt-5 bg-black text-white py-3 rounded-lg hover:bg-white 
-            hover:text-black hover:border hover:border-black transition-all cursor-pointer"
-          >
-            Pay Now
+          <div className="flex-1 h-1 bg-green-600 mx-2"></div>
+
+          <div className="flex items-center gap-2 text-green-600 ">       
+            <IoCheckmarkDoneCircleSharp size={40}/>
+            Checkout
+          </div>
+
+          <div className="flex-1 h-1 bg-gray-300 mx-2"></div>
+
+          <div className="flex items-center gap-2 text-black">
+            <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">3</span>
+            Payment
+          </div>
+        </div>
+
+        {/* PAYMENT CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-2xl shadow-xl p-6" >
+          <h2 className="text-xl font-bold mb-4">Order Summary</h2>
+
+          <div className="space-y-2 max-h-48 overflow-y-auto text-sm">
+            {cart.map((item) => (
+              <div key={item.id} className="flex justify-between">
+                <span>{item.name} × {item.qty}</span>
+                <span>₹{item.price * item.qty}</span>
+              </div>
+            ))}
+          </div>
+
+          <hr className="my-4" />
+
+          <div className="flex justify-between text-lg font-bold">
+            <span>Total Amount</span>
+            <span className="text-green-600">₹{totalPrice}</span>
+          </div>
+
+          <button
+            onClick={handlePayment}
+            className="w-full mt-6 bg-black text-white py-3 rounded-xl text-lg font-semibold hover:scale-[1.02]
+             transition cursor-pointer" >
+            Pay
           </button>
-        </div>
 
-        {/* RIGHT - OPTIONAL INFO */}
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h2 className="text-xl font-semibold mb-4">Note</h2>
-          <p className="text-gray-700">
-            Use Razorpay Test Card for practice:  
-            <br />Card: 4111 1111 1111 1111  
-            <br />CVV: 123  
-            <br />Expiry: Any future date
+          <p className="text-xs text-center text-gray-400 mt-4">
+            Secure demo payment  No real transaction
           </p>
-        </div>
-
+        </motion.div>
       </div>
     </>
   );
