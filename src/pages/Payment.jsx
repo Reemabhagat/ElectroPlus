@@ -17,12 +17,7 @@ const Payment = () => {
     0
   );
 
-  // const handlePayment = async () => {
-  //   const res = await makeDummyPayment(cart, totalPrice);
-  //   alert(`Payment Successful 🎉\nOrder ID: ${res.orderId}`);
-  //   setCart([]);
-  //   navigate("/");
-  // };
+ 
 
   return (
     <>
@@ -89,7 +84,7 @@ const Payment = () => {
           <PaymentButton cartItems={cart} />
 
           <p className="text-xs text-center text-gray-400 mt-4">
-            Secure demo payment  No real transaction
+            Demo payment  No real transaction
           </p>
         </motion.div>
       </div>

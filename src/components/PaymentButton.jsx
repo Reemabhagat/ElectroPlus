@@ -20,7 +20,10 @@ const PaymentButton = ({ cartItems }) => {
 
 
     return (
-        <button onClick={handlePayment} disabled={loading || cartItems.length === 0}>
+        <button onClick={handlePayment} disabled={loading || cartItems.length === 0} 
+        className="w-full mt-6 bg-black text-white py-3 rounded-xl text-lg font-semibold 
+        transition cursor-pointer hover:bg-white hover:text-black hover:border hover:border-black 
+        transition-all duration-1000 ease-in-out">
             {loading ? "Processing..." : "Pay Now"}
 
         </button>
