@@ -25,13 +25,18 @@ useEffect(() => {
         id: product.id,
         name: product.name,
         price: product.price,
-        img: product.img, qty: 1
+        img: product.img, 
+        qty: 1
       }];
     });
   };
-
+ // Clear cart 
+  const clearCart = () => {
+    setCart([]); 
+    localStorage.removeItem("cart"); 
+  };
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart }}>
+    <CartContext.Provider value={{ cart, setCart, addToCart, clearCart  }}>
       {children}
     </CartContext.Provider>
   );

@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { makeDummyPayment } from "../api/dummyApi";
 
 const PaymentButton = ({ cartItems }) => {
     const [loading, setLoading] = useState(false);
+const [successPopup, setSuccessPopup] = useState(null);
 
+const { clearCart } = useContext(CartContext);
     const handlePayment = async () => {
-        const totalAmount = cartItems.reduce((sum, item) => sum + item.price, 0);
+        const totalAmount = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
         setLoading(true);
         try {
             const res = await makeDummyPayment(cartItems, totalAmount);
-            alert(`Payment Successful! Order ID: ${res.orderId}`);
-            localStorage.removeItem("cart"); // clear cart
+             setSuccessPopup(`Payment Successful! Order ID: ${res.orderId}`);
+      clearCart();
+            
         } catch (err) {
             alert(`Payment Failed: ${err.message}`);
         } finally { 
