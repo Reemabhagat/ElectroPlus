@@ -4,15 +4,17 @@ import { makeDummyPayment } from "../api/dummyApi";
 
 const PaymentButton = ({ cartItems }) => {
     const [loading, setLoading] = useState(false);
-const [successPopup, setSuccessPopup] = useState(null);
+
 
 const { clearCart } = useContext(CartContext);
+
     const handlePayment = async () => {
-        const totalAmount = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-        setLoading(true);
+        const totalAmount = (cartItems || []).reduce((sum, item) => sum + item.price * item.qty, 0);
+    setLoading(true);
         try {
             const res = await makeDummyPayment(cartItems, totalAmount);
-             setSuccessPopup(`Payment Successful! Order ID: ${res.orderId}`);
+              alert(`Payment Successful! Order ID: ${res.orderId}`);
+
       clearCart();
             
         } catch (err) {
@@ -24,7 +26,7 @@ const { clearCart } = useContext(CartContext);
 
 
     return (
-        <button onClick={handlePayment} disabled={loading || cartItems.length === 0} 
+        <button onClick={handlePayment} disabled={loading || !(cartItems?.length)} 
         className="w-full mt-6 bg-black text-white py-3 rounded-xl text-lg font-semibold 
         transition cursor-pointer hover:bg-white hover:text-black hover:border hover:border-black 
         transition-all duration-1000 ease-in-out">
