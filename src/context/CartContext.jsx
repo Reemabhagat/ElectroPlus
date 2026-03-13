@@ -3,11 +3,11 @@ import { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState( () => {;
- const savedCart = localStorage.getItem("cart");
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
-});
-useEffect(() => {
+  });
+  useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
@@ -25,18 +25,18 @@ useEffect(() => {
         id: product.id,
         name: product.name,
         price: product.price,
-        img: product.img, 
+        img: product.img,
         qty: 1
       }];
     });
   };
- // Clear cart 
+  // Clear cart 
   const clearCart = () => {
-    setCart([]); 
-    localStorage.removeItem("cart"); 
+    setCart([]);
+    localStorage.removeItem("cart");
   };
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart, clearCart  }}>
+    <CartContext.Provider value={{ cart, setCart, addToCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
